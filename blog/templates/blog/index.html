@@ -1,0 +1,24 @@
+﻿{# blog/templates/blog/index.html #}
+{% extends "blog/base.html" %}
+{% block title %}Home – My Awesome Blog{% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+    <div class="post-card">
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.content }}</p>
+      <small>Published on {{ post.published_date|date:"M j, Y, P" }}</small>
+      <p>
+        <a class="button" href="{% url 'blog:post_detail' post.id %}">
+          Read More →
+        </a>
+      </p>
+    </div>
+  {% empty %}
+    <p>No posts yet. Head over to <a href="/admin/">admin</a> and add one!</p>
+  {% endfor %}
+
+  <div class="post-card">
+    <p>The current time is {{ current_time|date:"P" }}</p>
+  </div>
+{% endblock %}

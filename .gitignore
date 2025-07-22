@@ -1,0 +1,27 @@
+# Python/Django
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Django static & media
+staticfiles/
+media/
+
+# IDE/editor
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env

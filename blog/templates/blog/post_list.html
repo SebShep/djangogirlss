@@ -1,0 +1,13 @@
+﻿{% extends "blog/base.html" %}
+
+{% block content %}
+  {% for post in posts %}
+    <div class="post">
+      <h2>{{ post.title }}</h2>
+      <p>{{ post.body|linebreaks }}</p>
+      <small>Published on {{ post.pub_date }}</small>
+    </div>
+  {% empty %}
+    <p>No posts yet.</p>
+  {% endfor %}
+{% endblock %}
