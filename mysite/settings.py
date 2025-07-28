@@ -12,9 +12,7 @@ SECRET_KEY = 'replace-this-with-your-secret-key'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 # Application definition
 
 INSTALLED_APPS = [
