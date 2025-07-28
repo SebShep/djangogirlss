@@ -1,16 +1,13 @@
-# blog/views.py
 from django.shortcuts import render, get_object_or_404
+from django.utils.text import Truncator
 from .models import Post
-from datetime import datetime
 
-def index(request):
-    posts = Post.objects.order_by('-published_date')
-    return render(request, 'blog/index.html', {
-        'posts': posts,
-        'current_time': datetime.now(),
-    })
+def post_list(request):
+    posts = Post.objects.all().order_by('-created_date')
+    for post in posts:
+        post.excerpt = Truncator(post.text).chars(200, truncate='…')
+    return render(request, 'blog/post_list.html', {'posts': posts})
 
-def post_detail(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
-    return render(request, 'blog/detail.html', { 'post': post })
-
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_detail.html', {'post': post})

@@ -1,0 +1,11 @@
+﻿{% extends 'base.html' %}
+{% block title %}{{ post.title }} – My Blog{% endblock %}
+
+{% block content %}
+<article class="post-detail">
+  <h2>{{ post.title }}</h2>
+  <small class="date">{{ post.created_date|date:"M d, Y · H:i" }}</small>
+  <div class="post-content">{{ post.text|linebreaks }}</div>
+  <a href="{% url 'post_list' %}" class="btn">Back to Home</a>
+</article>
+{% endblock %}

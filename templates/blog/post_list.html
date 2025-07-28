@@ -1,0 +1,17 @@
+﻿{% extends 'base.html' %}
+{% block title %}Blog Posts – My Blog{% endblock %}
+
+{% block content %}
+  <div class="posts">
+    {% for post in posts %}
+      <article class="post-card">
+        <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+        <small class="date">{{ post.created_date|date:"M d, Y · H:i" }}</small>
+        <p>{{ post.excerpt|linebreaks }}</p>
+        <a href="{% url 'post_detail' post.pk %}" class="btn">Read More</a>
+      </article>
+    {% empty %}
+      <p>No posts yet. Check back soon!</p>
+    {% endfor %}
+  </div>
+{% endblock %}

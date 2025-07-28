@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Inter:wght@400;600&display=swap');
+
+:root {
+  --brand-primary: #ff6b6b;
+  --brand-secondary: #4ecdc4;
+  --bg-light: #f0f4f8;
+  --text-dark: #343a40;
+  --accent: #ffe66d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+  padding: 1rem 2rem;
+  color: white;
+  font-family: 'Fredoka One', cursive;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+nav {
+  margin-top: 0.5rem;
+}
+
+nav a {
+  color: white;
+  margin-right: 1.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.post-card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+}
+
+.post-card h2 {
+  color: var(--brand-primary);
+  margin-bottom: 0.5rem;
+}
+
+.post-card p {
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.footer,
+footer {
+  background: var(--brand-secondary);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+a.button {
+  display: inline-block;
+  background: var(--brand-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+a.button:hover {
+  background: var(--accent);
+  color: var(--text-dark);
+}
